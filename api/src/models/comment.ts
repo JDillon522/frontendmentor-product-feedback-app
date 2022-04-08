@@ -1,9 +1,23 @@
-import { IUser } from "./user"
+import { Column, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
+import { User } from "./user"
 
-export interface IComment  {
+@Entity()
+export class Comment  {
+  @PrimaryGeneratedColumn()
   id: number;
+
+  @Column()
   content: string;
-  user: IUser;
-  replyingTo?: string;
-  replies?: IComment[]
+
+  @ManyToOne(() => User)
+  @JoinColumn()
+  user: User;
+
+  @ManyToOne(() => User)
+  @JoinColumn()
+  replyingTo: User;
+
+  @JoinColumn()
+  @ManyToOne(() => Comment)
+  replies: Comment;
 }
