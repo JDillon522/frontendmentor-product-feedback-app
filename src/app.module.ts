@@ -1,10 +1,12 @@
 import { Module } from '@nestjs/common';
-import { DatabaseService } from './services/database/database.service';
-import { UserController } from './user/user.controller';
 import { RequestsController } from './requests/requests.controller';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { Connection } from 'typeorm';
 import { ConfigModule } from '@nestjs/config';
+import { User } from './models/user';
+import { Comment } from './models/comment';
+import { ProductRequest } from './models/productRequest';
+import { UsersModule } from './user/users.module';
 
 @Module({
   imports: [
@@ -17,7 +19,7 @@ import { ConfigModule } from '@nestjs/config';
       password: process.env.DB_PASSWORD,
       database: process.env.DB_NAME,
       entities: [
-
+        User
       ],
       extra: {
         ssl: {
@@ -26,14 +28,14 @@ import { ConfigModule } from '@nestjs/config';
       },
       logging: true,
       synchronize: process.env.NODE_ENV === 'production' ? false : true
-    })
+    }),
+    UsersModule
   ],
   controllers: [
-    UserController,
     RequestsController
   ],
   providers: [
-    DatabaseService
+
   ],
 })
 export class AppModule {

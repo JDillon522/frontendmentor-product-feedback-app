@@ -1,21 +1,20 @@
 import { Controller, Get, Param } from '@nestjs/common';
-import { IProductRequest } from '../models/productRequest';
-import { DatabaseService } from '../services/database/database.service';
+import { ProductRequest } from '../models/productRequest';
 
 @Controller('requests')
 export class RequestsController {
 
   constructor(
-    private service: DatabaseService
+    // private service: UsersService
   ) {}
 
-  @Get('')
-  public getAllRequestsForUser(): IProductRequest[] {
-    return this.service.getAllRequestsForUser();
-  }
+  // @Get('')
+  // public getAllRequestsForUser(): ProductRequest[] {
+  //   return this.service.getAllRequestsForUser();
+  // }
 
-  @Get(':id')
-  public getSingleRequestForUser(@Param('id') id: string) {
-    return this.service.getSingleRequestForUser(Number(id));
-  }
+  // @Get(':id')
+  // public getSingleRequestForUser(@Param('id') id: string) {
+  //   return this.service.getSingleRequestForUser(Number(id));
+  // }
 }
