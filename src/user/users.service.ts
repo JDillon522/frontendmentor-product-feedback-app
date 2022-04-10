@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
-import { INewUser, User } from '../models/user';
+import { INewUser, User } from './user.entity';
 
 @Injectable()
 export class UsersService {
@@ -13,10 +13,20 @@ export class UsersService {
 
   async createNewUser(newUser: INewUser): Promise<User> {
     const user = await this.userRepo.create(newUser);
+    await this.userRepo.save(user);
     return user;
   }
-  getUserData(id: number): User {
-    throw new Error('Method not implemented.');
+
+  async getUsers(): Promise<User[]> {
+    const res = await this.userRepo.createQueryBuilder().getMany();
+
+    return res;
+  }
+
+  async getUser(id: number): Promise<User> {
+    const res = await this.userRepo.findOne(id);
+
+    return res;
   }
 
 
