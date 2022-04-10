@@ -3,10 +3,12 @@ import { RequestsController } from './requests/requests.controller';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { Connection } from 'typeorm';
 import { ConfigModule } from '@nestjs/config';
-import { User } from './models/user';
-import { Comment } from './models/comment';
-import { ProductRequest } from './models/productRequest';
+import { User } from './user/user.entity';
+import { ProductRequest } from './requests/request.entity';
 import { UsersModule } from './user/users.module';
+import { RequestsModule } from './requests/requests.module';
+import { CommentsModule } from './comments/comments.module';
+import { Comment } from './comments/comment.entity';
 
 @Module({
   imports: [
@@ -19,7 +21,9 @@ import { UsersModule } from './user/users.module';
       password: process.env.DB_PASSWORD,
       database: process.env.DB_NAME,
       entities: [
-        User
+        User,
+        ProductRequest,
+        Comment
       ],
       extra: {
         ssl: {
@@ -29,10 +33,12 @@ import { UsersModule } from './user/users.module';
       logging: true,
       synchronize: process.env.NODE_ENV === 'production' ? false : true
     }),
-    UsersModule
+    UsersModule,
+    RequestsModule,
+    CommentsModule
   ],
   controllers: [
-    RequestsController
+
   ],
   providers: [
 
