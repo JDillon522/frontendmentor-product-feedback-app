@@ -1,0 +1,59 @@
+@use './variables.scss' as var;
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: var.$font-family;
+  background-color: var.$white;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+h1 {
+  @include var.h1;
+}
+
+h2 {
+  @include var.h2;
+}
+
+h3 {
+  @include var.h3;
+}
+
+h4 {
+  @include var.h4;
+}
+
+p {
+  @include var.body1;
+  max-width: 65ch;
+}
+
+button {
+  border-radius: 10px;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 20px;
+  text-align: center;
+  width: 158px;
+  height: 44px;
+  border: none;
+  color: var.$white;
+  background-color: var.$purple;
+  transition: background-color .15s ease-in;
+
+  &:hover {
+    background-color: var.$hover-purple;
+  }
+}

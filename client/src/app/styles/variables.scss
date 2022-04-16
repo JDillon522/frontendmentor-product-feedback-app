@@ -1,0 +1,99 @@
+@import url('https://fonts.googleapis.com/css2?family=Jost:wght@400;600;700&display=swap');
+
+$purple: HSL(282, 83%, 52%); // AD1FEA
+  $hover-purple: HSL(282, 83%, 65%);
+$sapphire-blue: HSL(230, 76%, 59%); // 4661E6
+  $hover-sapphire-blue: HSL(230, 76%, 70%);
+$sky-blue: HSL(204, 94%, 68%); // 62BCFA
+$peach: HSL(14, 83%, 74%);
+$warning-red: hsl(0, 67%, 53%);
+  $hover-warning-red: hsl(0, 67%, 73%);
+
+$navy-blue: HSL(230, 31%, 31%); // 4661E6
+
+$light-navy-blue: HSL(231, 33%, 34%); // 3A4374
+  $hover-light-navy-blue: HSL(231, 33%, 54%);
+
+$dark-gray: HSL(224, 20%, 49%); // 647196
+$light-gray: HSL(231, 100%, 97%); // F2F4FF
+$shadow: HSL(230, 60%, 98%); // F7F8FD
+$white: HSL(0,0%, 100%); // FFFFFF
+
+$font-family: 'Jost', sans-serif;
+
+@mixin container {
+  width: 100%;
+  max-width: 1110px;
+  margin: auto;
+}
+
+@mixin h1 {
+  color: $light-navy-blue;
+  font-size: 24px;
+  line-height: 35px;
+  font-weight: 700;
+  font-style: normal;
+  letter-spacing: -0.33px;
+  opacity: 0.96;
+  mix-blend-mode: normal;
+}
+
+@mixin h2 {
+  color: $light-navy-blue;
+  font-size: 20px;
+  line-height: 29px;
+  font-weight: 700;
+  font-style: normal;
+  letter-spacing: -0.25px;
+}
+
+@mixin h3 {
+  color: $light-navy-blue;
+  font-size: 18px;
+  line-height: 26px;
+  font-weight: 700;
+  font-style: normal;
+  letter-spacing: -0.25px;
+}
+
+@mixin h4 {
+  color: $light-navy-blue;
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 700;
+  font-style: normal;
+  letter-spacing: -0.20px;
+}
+
+@mixin body1 {
+  color: $light-navy-blue;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 23px;
+  line-height: 23px;
+}
+
+@mixin body2 {
+  color: $light-navy-blue;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 22px;
+}
+
+@mixin body3 {
+  color: $light-navy-blue;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 13px;
+  line-height: 19px;
+}
+
+@mixin label {
+  color: $dark-gray;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 23px;
+  opacity: 0.75;
+}

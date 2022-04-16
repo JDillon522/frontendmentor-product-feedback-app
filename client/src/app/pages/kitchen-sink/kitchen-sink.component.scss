@@ -1,0 +1,10 @@
+.buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: start;
+
+  button {
+    margin: auto;
+    margin-top: 16px;
+  }
+}

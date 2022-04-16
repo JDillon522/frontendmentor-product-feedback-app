@@ -43,7 +43,6 @@ export class UserState {
 
   @Action(GetUser)
   public getUser(ctx: StateContext<IUserState>) {
-    console.log('ACTION', 'get user')
     return this.api.getUserInfo().pipe(
       tap((user: IUser) => {
         ctx.patchState({

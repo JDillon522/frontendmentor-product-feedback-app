@@ -1,0 +1,84 @@
+@use './variables.scss' as var;
+
+.container {
+  @include var.container;
+}
+
+.body1 {
+  @include var.body1;
+}
+
+.body2 {
+  @include var.body2;
+}
+
+.body3 {
+  @include var.body3;
+}
+
+.btn {
+
+  &-blue {
+    background-color: var.$sapphire-blue;
+
+    &:hover {
+      background-color: var.$hover-sapphire-blue;
+    }
+  }
+
+  &-navy {
+    background-color: var.$light-navy-blue;
+
+    &:hover {
+      background-color: var.$hover-light-navy-blue;
+    }
+  }
+
+  &-warn {
+    background-color: var.$warning-red;
+
+    &:hover {
+      background-color: var.$hover-warning-red;
+    }
+  }
+
+  &-nav-light {
+    background-color: transparent;
+    color: var.$dark-gray;
+    text-decoration: underline;
+    text-decoration-color: transparent;
+    transition: text-decoration .15s ease-in;
+
+    &.left, &.back {
+      &::before {
+        content: url('/assets/shared/icon-arrow-left.svg');
+        margin-right: 19.5px;
+      }
+    }
+
+    &:hover {
+      background-color: transparent;
+      text-decoration-color: var.$dark-gray;
+    }
+  }
+
+  &-nav-dark {
+    background-color: var.$navy-blue;
+    text-decoration: underline;
+    text-decoration-color: transparent;
+    transition: text-decoration .15s ease-in;
+
+    &.left, &.back {
+      &::before {
+        content: url('/assets/shared/icon-arrow-left.svg');
+        margin-right: 19.5px;
+        filter: brightness(5);
+      }
+    }
+
+    &:hover {
+      background-color: var.$navy-blue;
+      text-decoration-color: var.$white;
+    }
+  }
+}
